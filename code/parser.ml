@@ -10,9 +10,10 @@ let rec parse_expr tokens =
     | LPAREN :: rest ->
         let (expr, rest') = parse_expr rest in
         (match rest' with
-        | RPAREN :: rest'' -> (Paren expr, rest'')
-        | _ -> failwith "Missing closing parenthesis")
-    | _ -> failwith "Unexpected token"
+        | RPAREN :: rest'' -> (Paren expr, rest'')  (* Successfully match parentheses *)
+        | _ -> failwith "Unmatched opening parenthesis: expected closing `!?`")
+    | RPAREN :: _ -> failwith "Unexpected token: unmatched closing parenthesis"
+    | _ -> failwith "Unexpected token in primary expression"
   and parse_term tokens =
     let (left, rest) = parse_primary tokens in
     match rest with

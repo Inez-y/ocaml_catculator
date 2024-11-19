@@ -1,5 +1,4 @@
 (* Tokenizes the input string into meaningful units (tokens). *)
-
 open Tokens
 
 let tokenize input =
@@ -27,13 +26,17 @@ let tokenize input =
         aux (pos + 1) (PLUS :: acc)
       else if String.length remaining >= 3 && String.sub remaining 0 3 = "..." then
         aux (pos + 3) (MINUS :: acc)
-      else if String.sub remaining 0 1 = "!" then
-        aux (pos + 1) (MULT :: acc)
+      else if String.length remaining >= 2 && String.sub remaining 0 2 = "?!" then
+        aux (pos + 2) (LPAREN :: acc)  (* Opening parenthesis *)
+      else if String.length remaining >= 2 && String.sub remaining 0 2 = "!?" then
+        aux (pos + 2) (RPAREN :: acc)  (* Closing parenthesis *)     
       else if String.sub remaining 0 1 = "?" then
         if pos + 2 <= length && String.sub input (pos + 1) 1 = "!" then
           aux (pos + 2) (LPAREN :: acc)
         else
-          aux (pos + 1) (DIV :: acc)
+          aux (pos + 1) (DIV :: acc) 
+      else if String.sub remaining 0 1 = "!" then
+        aux (pos + 1) (MULT :: acc)
       else if input.[pos] = ' ' then
         aux (pos + 1) acc  (* Skip spaces *)
       else failwith ("Unknown token: " ^ String.make 1 input.[pos])

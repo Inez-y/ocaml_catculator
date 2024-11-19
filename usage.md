@@ -8,7 +8,7 @@ This document provides a quick overview of how to use your cat-themed programmin
 The language supports:
 - **Cat-themed numbers**: Represented as strings like `meow`, `meow meow`, `huh`, etc.
 - **Basic arithmetic operators**: Addition (`~`), Subtraction (`...`), Multiplication (`!`), Division (`?`).
-- **Parentheses**: For grouping operations (`?!`).
+- **Parentheses**: For grouping operations (`?!` and `!?`).
 
 ---
 
@@ -35,7 +35,9 @@ Numbers are expressed using specific cat-like words:
 | Subtraction      | `...`      | `myoo ... meow` (5 - 1)   |
 | Multiplication   | `!`        | `meow ! meow meow` (1 * 2)|
 | Division         | `?`        | `myoo ? meow` (5 / 1)     |
-| Parentheses      | `?!`       | `?! meow ~ myoo ?! ! meow`|
+| Parentheses      | `?!`(left) | `?! meow ~ myoo !? ! meow`|
+|                  | `!?`(right)|              ((1 + 5) ! 1)|    
+
 
 ---
 
@@ -52,14 +54,7 @@ Numbers are expressed using specific cat-like words:
 
 ```
 1. Start the program:
-   ```bash
-   ./main.byte
-   ```
-   Or, in `utop`:
-   ```ocaml
-   #load "main.cmo";;
-   Main.main ();;
-   ```
+   in `utop`:
 
    ```ocaml
     #load "tokens.cmo";;
@@ -112,7 +107,7 @@ Result: 5
 ### **Using Parentheses**
 Input:
 ```
-?! meow ~ myoo ?! ! meow meow
+?! meow ~ myoo !? ! meow meow
 ```
 Output:
 ```

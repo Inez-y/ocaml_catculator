@@ -8,5 +8,5 @@ type token =
   | MULT              (* "!" *)
   | DIV               (* "?" *)
   | LPAREN            (* "?!" for "(" *)
-  | RPAREN            (* "?!" for ")" *)
+  | RPAREN            (* "!?" for ")" *)
   | EOF               (* End of input *)
