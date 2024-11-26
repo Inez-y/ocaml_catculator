@@ -1,4 +1,4 @@
-# **Cat-Themed Programming Language: CatGPT Usage Guide**
+# **Cat-Themed Programming Language: Catculator Usage Guide**
 
 This document provides a quick overview of how to use your cat-themed programming language for basic calculations with Roman numeral-like inputs.
 
@@ -52,9 +52,9 @@ Numbers are expressed using specific cat-like words:
     ocamlc -o main.byte tokens.cmo ast.cmo lexer.cmo parser.cmo interpreter.cmo main.ml
     ```
 
-```
-1. Start the program:
-   in `utop`:
+    ```
+    Start the program:
+    in `utop`:
 
    ```ocaml
     #load "tokens.cmo";;
@@ -63,7 +63,7 @@ Numbers are expressed using specific cat-like words:
     #load "parser.cmo";;
     #load "interpreter.cmo";;
     #load "main.cmo";;
-   ```
+    ```
 
 2. Input a cat-themed calculation when prompted:
    ```
